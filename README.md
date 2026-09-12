@@ -1,16 +1,116 @@
-# React + Vite
+````md
+# React useState
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What is useState?
 
-Currently, two official plugins are available:
+`useState` is a React Hook used to create and manage state inside a functional component.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+When state changes, React re-renders the component and updates the UI.
 
-## React Compiler
+## Syntax
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```jsx
+import { useState } from "react";
 
-## Expanding the ESLint configuration
+const [state, setState] = useState(initialValue);
+````
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Example
+
+```jsx
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
+    </div>
+  );
+}
+```
+
+## Understanding the Syntax
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+* `count` → current state value
+* `setCount` → function used to update the state
+* `0` → initial value
+
+## Common Examples
+
+### String
+
+```jsx
+const [name, setName] = useState("");
+```
+
+### Boolean
+
+```jsx
+const [isOpen, setIsOpen] = useState(false);
+```
+
+### Array
+
+```jsx
+const [items, setItems] = useState([]);
+```
+
+### Object
+
+```jsx
+const [user, setUser] = useState({
+  name: "",
+  age: 0
+});
+```
+
+## Updating State
+
+```jsx
+setCount(10);
+```
+
+When the new state depends on the previous state:
+
+```jsx
+setCount(prev => prev + 1);
+```
+
+## Important Rules
+
+* Import `useState` from React.
+* Call Hooks at the top level of the component.
+* Don't directly modify state.
+* Use the setter function to update state.
+* State updates cause the component to re-render.
+
+## Remember
+
+```text
+useState
+   ↓
+Create State
+   ↓
+Update State
+   ↓
+React Re-renders
+   ↓
+UI Updates
+```
+
+**useState = State + Setter + Re-render**
+
+```
+
+This is enough for your **learning notes** without making the README unnecessarily long.
+```
