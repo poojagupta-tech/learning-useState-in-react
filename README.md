@@ -15,7 +15,7 @@ import { useState } from "react";
 const [state, setState] = useState(initialValue);
 ````
 
-### Example
+## Example
 
 ```jsx
 import { useState } from "react";
