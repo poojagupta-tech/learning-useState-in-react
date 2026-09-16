@@ -40,6 +40,8 @@ function Counter() {
 ```jsx
 const [count, setCount] = useState(0);
 ```
+##Example
+![React useState Counter](./src/assets/screenshot.png)
 
 * `count` → current state value
 * `setCount` → function used to update the state
